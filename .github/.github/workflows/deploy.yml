@@ -13,18 +13,41 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          node-version: '14'
+          python-version: '3.8'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Build application
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
         run: |
+          python -m venv env
+          source env/bin/activate
+          pip install -r requirements.txt
+
+      - name: Preprocess data
+        run: |
+          source env/bin/activate
+          python server/cleaning.py
+
+      - name: Fine-tune the model
+        run: |
+          source env/bin/activate
+          python fine_tune.py
+
+      - name: Generate summaries
+        run: |
+          source env/bin/activate
+          python server/generate_summaries.py
+
+      - name: Start the server
+        run: |
+          source env/bin/activate
+          hypercorn server.app:app &
+          
+      - name: Deploy client to GitHub Pages
+        run: |
+          cd client
+          npm install
+          npm run build
           npm install -g gh-pages
-          npm run deploy
+          gh-pages -d build
