@@ -3,4 +3,5 @@
 ## Prerequisites Ensure you have the following installed: - Python 3.8+ - pip (Python package installer) - Virtual environment (optional but recommended) ## Installation 
 ### Step 1: Clone the Repository 
 ```sh
-git clone https://github.com/yourusername/vietnamesse-product-summarization-chatbot.git cd vietnamesse-product-summarization-chatbot
+git clone https://github.com/BaoNgo2701/VietSumBot
+cd vietnamesse-product-summarization-chatbot
