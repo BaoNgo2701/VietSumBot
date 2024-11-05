@@ -1,99 +1,58 @@
-Product Summarization Chatbot
-Project Overview
-This project implements a simple chatbot client-server solution that performs product summarization in Vietnamese. Users can send product-related queries to the server, which responds with up to 5 related products along with reasons to purchase them.
+# Vietnamese Product Summarization Chatbot 
+## Project Overview This project aims to develop a chatbot client-server solution that performs product summarization in Vietnamese. Users can send a request searching for a product, and the server will process this request by summarizing a collection of relevant products. 
+## Prerequisites Ensure you have the following installed: 
+  - Python 3.8+ - pip (Python package installer)
+  - Virtual environment 
+## Installation 
+### Clone the Repository 
 
-Features
-Client sends a product-related text request in Vietnamese.
+'''
+  - git clone https://github.com/BaoNgo2701/VietSumBot.git
+  - cd vietnamesse-product-summarization-chatbot
 
-Server processes the request, summarizes relevant products, and returns the top 5 related products with reasons to buy.
 
-Requirements
-Python 3.8 or higher
+### Create and Activate a Virtual Environment
+#### Window:
+  - python -m venv env
+  - env\Scripts\activate
 
-transformers
+#### Linux:
+  - python3 -m venv env
+  - source env/bin/activate
 
-aiofiles
+## Processing Data
+### Install Dependencies
+  - pip install -r requirement.txt
 
-asyncio
+### Cleaning Data
+To preprocess and clean the data, run:
+  - python server/cleaning.py
 
-quart
+### Fine-Tuning the Model
+To fine-tune the model on the cleaned data, run:
+  - python fine_tune.py
 
-quart-cors
 
-requests
+### Generating Summaries
+To generate summaries, run:
+  - python server/generate_summaries.py
 
-tkinter
 
-rouge-score
+### Evaluation
+To evaluate the model using ROUGE scores, run:
+  - python evaluation/evaluate_model.py
 
-Installation
 
-Install the required packages:
-pip install -r requirements.txt
-Running the Server
+## Running the server
+### Start the Server
+  - hypercorn server.app:app
 
-Navigate to the server directory:
-cd server
+### Verify the Server
+Open your browser and navigate to http://127.0.0.1:8000 to ensure the server is running.
 
-Run the server:
-python app.py
-Running the Client
+## Testing the Client
+### Run the Client Application
+ - python client/main.py
 
-Navigate to the client directory:
-cd client
-
-Run the client:
-python main.py
-Server Code Explanation
-app.py
-Handles requests from the client.
-
-Summarizes product descriptions and returns the top 5 related products.
-
-Includes ROUGE scoring for evaluation.
-
-summarize.py
-Contains functions for product summarization, category detection, and pattern detection.
-
-Uses a pre-trained BART model for summarization.
-
-cleaning.py
-Reads product descriptions from files.
-
-Cleans and normalizes text data.
-
-Client Code Explanation
-main.py
-Sends product-related queries to the server.
-
-Displays the summarized product information along with ROUGE scores.
-
-Data Preparation
-Organize Product Descriptions:
-
-Place product descriptions in the server/product_data directory.
-
-Create folders for each category (e.g., Backpacks, Clothes, Office).
-
-Each folder should contain text files with product descriptions.
-
-Clean Data:
-
-Run cleaning.py to clean and normalize the product descriptions.
-
-cd server
-python cleaning.py
-
-Evaluation
-The server applies ROUGE scoring to evaluate the quality of the summaries.
-
-ROUGE scores are returned along with the product summaries for performance assessment.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Contact
-Your Name: giabao.ngoha@gmail.com
+### Interact with the Client
+Enter product queries in Vietnamese in the input field and click the "Send" button to view summarized product information and reasons to buy.
