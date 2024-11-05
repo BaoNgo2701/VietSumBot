@@ -5,11 +5,12 @@
   - Virtual environment 
 ## Installation 
 ### Clone the Repository 
-\```
+```sh
   git clone https://github.com/BaoNgo2701/VietSumBot
   cd vietnamesse-product-summarization-chatbot
 
-\
+'''
+
 ### Create and Activate a Virtual Environment
 #### Window:
 \```sh
