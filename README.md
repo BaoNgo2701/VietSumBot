@@ -7,7 +7,7 @@
 ### Clone the Repository 
 
 '''
-  - git clone https://github.com/BaoNgo2701/VietSumBot
+  - git clone https://github.com/BaoNgo2701/VietSumBot.git
   - cd vietnamesse-product-summarization-chatbot
 
 
